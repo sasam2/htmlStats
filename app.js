@@ -1,7 +1,3 @@
-//TODO
-//tree analysis on end
-	//ta: +attrs by tag
-//console loop
 
 const http = require('http');
 const https = require('https');
@@ -15,6 +11,15 @@ const rl = readline.createInterface({
 });
 readLine();
 
+
+/**
+ * Prompts user for html page address in the format http://www.mywebsite.com, 
+ * tries to get page source (with http or https protocols according to the address specified-
+ * no other protocols are supported) and parses the retrieved source.
+ * @function
+ * @augments 
+ * 
+ */
 function readLine(){
 	rl.question('Insert address:  ', (answer) => {
 		console.log(`Address inserted: ${answer}`);
@@ -43,6 +48,21 @@ function readLine(){
 	});
 };
 
+/**
+ * Requests page source of address, using protocol (http or https),
+ * and parses the retrieved source.
+ * Searches html dom tree depth-first and collects meta info on the page html source, namely: 
+ * - list of all children nodes by each tag type   (property tagChildrenInfo)
+ * - total count of of children nodes by each tag type (property tagChildren)
+ * - list of resources loaded by the page by resource type, if specified (property resources)
+ * - total count of attributes by tag type (property tagCount)
+ * - maximum depth of html dom tree (property treeDepth)
+ * Meta info is passed to finishedCB as a javascript object, with the mentioned properties. 
+ *
+ * @function
+ * @augments 
+ * 
+ */
 function requestAndParse(address, protocol, finishedCB){
 	var handler = new htmlparser.DefaultHandler(function (error, dom) {
 	if(error)
