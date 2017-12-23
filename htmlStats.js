@@ -115,15 +115,8 @@ function requestAndParse(address, protocol, finishedCB){
 					for(c=0;currNode.children && c<currNode.children.length;c++){
 						var currChild=currNode.children[c];
 						if(currChild.type=='tag' || currChild.type=='script' || currChild.type=='style'){
-							var childInfo=	Object.assign({}, currChild);
-							if(childInfo.attribs)
-								delete childInfo.attribs;		
-							if(childInfo.children)
-								delete childInfo.children;			
-							if(childInfo.raw)
-								delete childInfo.raw;			
 							tagChildren[currNode.name]++;
-							tagChildrenInfo[currNode.name].push(childInfo);	
+							tagChildrenInfo[currNode.name].push(currChild.data);	
 						}		
 					}
 				}
