@@ -43,16 +43,16 @@ describe('Test html meta info', function(){
 		app.requestAndParse("https://nodejs.org", https, (ret)=>{
 			test.object(ret.tagChildrenInfo)
 						.is( { html: 
-									  [ { data: 'head', type: 'tag', name: 'head' },
-										{ data: 'body bgcolor="white"', type: 'tag', name: 'body' } ],
+									  [ 'head', 
+										'body bgcolor="white"'],
 									 body: 
-									  [ { data: 'center', type: 'tag', name: 'center' },
-										{ data: 'hr', type: 'tag', name: 'hr' },
-										{ data: 'center', type: 'tag', name: 'center' } ],
-									 center: [ { data: 'h1', type: 'tag', name: 'h1' } ],
+									  ['center',
+										'hr',
+										'center' ],
+									 center: [ 'h1'],
 									 hr: [],
 									 h1: [],
-									 head: [ { data: 'title', type: 'tag', name: 'title' } ],
+									 head: [ 'title' ],
 									 title: [] });
 			done();
 			});
