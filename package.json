@@ -1,0 +1,18 @@
+{
+  "name": "htmlstats",
+  "version": "1.0.0",
+  "description": "html stats CLI",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "htmlparser": "^1.7.7",
+    "node-dom": "^0.1.0",
+    "unit.js": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha ./test/tests.js -R spec"
+  }
+}
