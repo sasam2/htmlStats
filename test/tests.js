@@ -1,10 +1,10 @@
 const http = require('http');
 const https = require('https');
-var app = require('../htmlStatsBkp.js');    
+var app = require('../htmlStats.js');    
 var test = require('unit.js');
 
 describe('Test html meta info', function(){
-	it('export functions test', function(){
+	it('functions test', function(){
 		test.object(app).hasProperty('readLine')
 										.hasProperty('requestAndParse');
 	});

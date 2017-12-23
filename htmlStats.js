@@ -76,12 +76,12 @@ function requestAndParse(address, protocol, finishedCB){
 	  res.on('data', (chunk) => {
 		 //console.log(`BODY: ${chunk}`);
 		parser.parseChunk(chunk);
-		console.log(chunk);
+		//console.log(chunk);
 	});
 
 	res.on('end', () => {
 		parser.done();
-		console.log("dom="+util.inspect(handler.dom, false, null));
+		//console.log("dom="+util.inspect(handler.dom, false, null));
 
 		var tagMap = {};
 		var tagAttributes = {};
